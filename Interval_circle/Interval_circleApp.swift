@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Interval_circleApp: App {
+    
+    @StateObject var model = IntervalModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(model)
         }
     }
 }
