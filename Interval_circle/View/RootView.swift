@@ -17,14 +17,13 @@ struct RootView: View {
         
         case .setting :
             SettingsView()
-        case .prapare:
-            Text("prepare")
+        case .prepare:
+            PrepareView()
         case .playing :
-            Text("Playing")
+            CountingView()
         case .interval :
-            Text("Interval")
-    
-       
+            IntervalView()
+     
         }
         
     }

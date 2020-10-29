@@ -9,16 +9,23 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    enum settingSheetView : Identifiable {
+        case set
+        
+        var id : Int {
+            hashValue
+        }
+    }
+    
     @EnvironmentObject var model : IntervalModel
     
     @AppStorage(AppStorageKey.timer) var timerStorage = 0
     @AppStorage(AppStorageKey.interval) var intervalStorage  = 0
-    @AppStorage(AppStorageKey.set) var setStorage  = 0
+    @AppStorage(AppStorageKey.set) var setStorage  = 1
     
     @State var timerAngle : Double = 0
     @State var intervalAngle : Double = 0
-    
-    let maxValue : CGFloat = 180
+    @State var sheetView : settingSheetView?
     
     var body: some View {
         VStack() {
@@ -29,7 +36,7 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 5)
                 
-                Circular_Slider(size: 130, circleColor: Color.green, maxValue: maxValue, progress: $model.selectedCount, angle: $timerAngle)
+                Circular_Slider(size: 130, circleColor: Color.green, maxValue: model.maxValue, progress: $model.selectedCount, angle: $timerAngle)
                
             }
             .padding(10)
@@ -39,7 +46,7 @@ struct SettingsView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 5)
                 
-                Circular_Slider(size: 130, circleColor: Color.red, maxValue: maxValue, progress: $model.selectedInterval, angle: $intervalAngle)
+                Circular_Slider(size: 130, circleColor: Color.red, maxValue: model.maxValue, progress: $model.selectedInterval, angle: $intervalAngle)
             }
             
             .padding(10)
@@ -47,7 +54,7 @@ struct SettingsView: View {
             Spacer()
             
             Button(action: {
-                print("Set")
+                sheetView = .set
             }) {
                 Text("\(model.selectedSet) セット")
                     .foregroundColor(.white)
@@ -76,7 +83,10 @@ struct SettingsView: View {
                 
                 
                 
-                Button(action: {model.state = .playing}) {
+                Button(action: {
+                    saveStorage()
+                    model.state = .prepare
+                }) {
                     Text("スタート")
                         .foregroundColor(.white)
                         .padding(.vertical)
@@ -95,9 +105,17 @@ struct SettingsView: View {
         .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)
         .background(Color.black)
         .ignoresSafeArea(.all, edges: .top)
+        .sheet(item: $sheetView, content: { (item) in
+            switch item {
+            case .set :
+                SetListView { (i) in
+                    model.selectedSet = i
+                }
+            }
+        })
         .onAppear {
-            self.model.selectedCount = CGFloat(timerStorage) / maxValue
-            self.model.selectedInterval =  CGFloat(intervalStorage) / maxValue
+            self.model.selectedCount = CGFloat(timerStorage) / model.maxValue
+            self.model.selectedInterval =  CGFloat(intervalStorage) / model.maxValue
             self.model.selectedSet = setStorage
             
             self.timerAngle = Double(self.model.selectedCount * 360)
@@ -107,13 +125,12 @@ struct SettingsView: View {
     }
     
     private func saveStorage() {
-        
         print(model.selectedInterval * 180)
-        timerStorage = Int(round(model.selectedCount * maxValue))
-        intervalStorage = Int(round(model.selectedInterval * maxValue))
+        timerStorage = model.time
+        intervalStorage = model.interval
         setStorage = model.selectedSet
         
-        print(timerStorage, intervalStorage)
+        print(timerStorage, intervalStorage, setStorage)
     }
 }
 
