@@ -42,6 +42,7 @@ struct PrepareView: View {
                     counter -= 1
                     
                     if counter == 0 {
+                        model.playFinishSound()
                         Thread.sleep(forTimeInterval: 0.5)
                         model.state = .playing
                     }

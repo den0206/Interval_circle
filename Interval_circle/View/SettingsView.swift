@@ -157,11 +157,6 @@ struct SettingsView: View {
 extension SettingsView {
     
     
-    private func checkUnderTimer() {
-        
-       
-    }
-    
     private func saveStorage() {
         timerStorage = model.time
         intervalStorage = model.interval
