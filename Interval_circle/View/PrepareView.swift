@@ -43,7 +43,9 @@ struct PrepareView: View {
                     
                     if counter == 0 {
                         model.playFinishSound()
+                        model.timer.upstream.connect().cancel()
                         Thread.sleep(forTimeInterval: 0.5)
+                        model.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                         model.state = .playing
                     }
                   

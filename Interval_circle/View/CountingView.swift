@@ -53,7 +53,6 @@ struct CountingView: View {
                 
                 Button(action: {
                     model.showCloseAert(type: .count)
-//                    model.closeCounter(type: .count)
                 }) {
                     Text("Close")
                         .foregroundColor(.white)

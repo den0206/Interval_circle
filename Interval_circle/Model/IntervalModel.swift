@@ -48,6 +48,7 @@ class IntervalModel : ObservableObject {
     /// sounds
     var startsound1 : AVAudioPlayer?
     var startsound2 : AVAudioPlayer?
+    var startsound3 : AVAudioPlayer?
 
     var finishsound : AVAudioPlayer?
     
@@ -71,23 +72,24 @@ class IntervalModel : ObservableObject {
     
     func CompleteActive() {
         
+        
+        counter -= 1
+        
         switch counter {
         
-        case 2,4 :
+        case 10 :
+            playStart3Sound()
+        
+        case 1,3:
             playStart1Sound()
-            counter -= 1
             
-        case 3 :
+        case 2 :
             
             playStart2Sound()
-            counter -= 1
-            
-        case 1 :
-            playFinishSound()
-            counter -= 1
-
+ 
         case 0 :
             finishSetCount += 1
+            playFinishSound()
             if finishSetCount == selectedSet {
                 print("Finish")
                 timer.upstream.connect().cancel()
@@ -98,39 +100,38 @@ class IntervalModel : ObservableObject {
                 timer.upstream.connect().cancel()
                 intervalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                 state = .interval
-                
-                
+             
             }
         default :
-            counter -= 1
+            break
         }
     
     }
     
     func CompleteInterval() {
         
+        counter -= 1
+        
         switch counter {
         
-        case 2,4 :
+        case 10 :
+            playStart3Sound()
+        
+        case 1,3:
             playStart1Sound()
-            counter -= 1
-            
-        case 3 :
+        case 2 :
             
             playStart2Sound()
-            counter -= 1
-            
-        case 1 :
-            playFinishSound()
-            counter -= 1
-
+ 
         case 0 :
+            playFinishSound()
+
             counter = CGFloat(time)
             intervalTimer.upstream.connect().cancel()
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             state = .playing
         default :
-            counter -= 1
+            break
         }
 
     }
@@ -220,6 +221,16 @@ class IntervalModel : ObservableObject {
             }
         }
         
+        if let path = Bundle.main.path(forResource: "boxing2", ofType: "mp3") {
+            do {
+                startsound3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                
+                startsound3?.prepareToPlay()
+            } catch {
+                print("No Sound")
+            }
+        }
+        
         if let path = Bundle.main.path(forResource: "finish-sound", ofType: "mp3") {
             do {
                 finishsound = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
@@ -230,6 +241,14 @@ class IntervalModel : ObservableObject {
             }
         }
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
+        }
+        
+        
+        
         print("prepare OK")
     }
     
@@ -237,8 +256,13 @@ class IntervalModel : ObservableObject {
         startsound1?.play()
         
     }
+    
     func playStart2Sound() {
         startsound2?.play()
+        
+    }
+    func playStart3Sound() {
+        startsound3?.play()
         
     }
     

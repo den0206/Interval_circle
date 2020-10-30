@@ -50,7 +50,6 @@ struct IntervalView: View {
                 
                 Button(action: {
                     model.showCloseAert(type: .interval)
-//                    model.closeCounter(type: .interval)
                 }) {
                     Text("Close")
                         .foregroundColor(.white)
