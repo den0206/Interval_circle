@@ -16,8 +16,9 @@ struct IntervalView: View {
         VStack {
             Spacer()
             
-            Text("\(model.finishSetCount ) セット目")
+            Text("\(model.finishSetCount) / \(model.selectedSet) Set")
                 .foregroundColor(.white)
+                .font(.headline)
                 .padding(.vertical, 10)
             
             Text("休憩")
@@ -27,18 +28,16 @@ struct IntervalView: View {
             Spacer()
             
             Progress_CircleView(size : 200,circleColor: Color.red, maxValue: CGFloat(model.interval), progress:  $model.counter)
-                .onReceive(model.timer) { (_) in
-                    print("22222")
+                .onReceive(model.intervalTimer) { (_) in
                     model.CompleteInterval()
                 }.padding(10)
-                .onAppear{print("Circle")}
             
             Spacer()
             
             HStack {
                 
                 Button(action: {
-                    model.stopCounter()
+                    model.stopCounter(type: .interval)
                 }) {
                     Text(model.isActive ? "一時停止" : "再開")
                         .foregroundColor(.white)
@@ -50,13 +49,14 @@ struct IntervalView: View {
                 }
                 
                 Button(action: {
-                    model.closeCounter()
+                    model.showCloseAert(type: .interval)
+//                    model.closeCounter(type: .interval)
                 }) {
                     Text("Close")
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal,40)
-                        .background(Color.green)
+                        .background(Color.yellow)
                         .clipShape(Capsule())
                     
                 }
@@ -71,6 +71,9 @@ struct IntervalView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)
         .ignoresSafeArea(.all, edges: .top)
+        .alert(isPresented: $model.showALert, content: {
+            model.closeAlert
+        })
         .onAppear {
             model.isActive = true
             model.counter = CGFloat(model.interval)

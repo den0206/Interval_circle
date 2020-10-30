@@ -27,6 +27,11 @@ struct SettingsView: View {
     @State var intervalAngle : Double = 0
     @State var sheetView : settingSheetView?
     
+    @State private var showHUD = false
+    @State private var showAlert = false
+    @State private var alert = Alert(title: Text(""))
+
+    
     var body: some View {
         VStack() {
           Spacer()
@@ -70,6 +75,15 @@ struct SettingsView: View {
             HStack {
                 
                 Button(action: {
+                    
+                    guard model.time > 5 && model.interval > 5  else {
+                        
+                        showAlert = true
+                        alert = Alert(title: Text("タイマーが少し短いようです。"), message: Text("5秒以上にして頂けると助かります"), dismissButton: .default(Text("OK")))
+                        
+                        return
+                    }
+                    
                     saveStorage()
                 }) {
                     Text("Save")
@@ -81,9 +95,16 @@ struct SettingsView: View {
                     
                 }
                 
-                
-                
                 Button(action: {
+                    
+                    guard model.time > 5 && model.interval > 5  else {
+                        
+                        showAlert = true
+                        alert = Alert(title: Text("タイマーが少し短いようです。"), message: Text("5秒以上にして頂けると助かります"), dismissButton: .default(Text("OK")))
+                        
+                        return
+                    }
+                    
                     saveStorage()
                     model.state = .prepare
                 }) {
@@ -113,7 +134,13 @@ struct SettingsView: View {
                 }
             }
         })
+        .showHUD(isShowing: $showHUD, Text("Saveに成功しました!"))
+        .alert(isPresented: $showAlert, content: {
+            alert
+        })
         .onAppear {
+            self.model.intervalTimer.upstream.connect().cancel()
+            
             self.model.selectedCount = CGFloat(timerStorage) / model.maxValue
             self.model.selectedInterval =  CGFloat(intervalStorage) / model.maxValue
             self.model.selectedSet = setStorage
@@ -124,13 +151,25 @@ struct SettingsView: View {
         
     }
     
+   
+}
+
+extension SettingsView {
+    
+    
+    private func checkUnderTimer() {
+        
+       
+    }
+    
     private func saveStorage() {
-        print(model.selectedInterval * 180)
         timerStorage = model.time
         intervalStorage = model.interval
         setStorage = model.selectedSet
         
+        showHUD = true
         print(timerStorage, intervalStorage, setStorage)
     }
+   
 }
 

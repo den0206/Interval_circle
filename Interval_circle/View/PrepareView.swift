@@ -20,7 +20,7 @@ struct PrepareView: View {
             
             HStack {
                 Button(action: {
-                    model.closeCounter()
+                    model.closeCounter(type: .count)
                 }, label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 24))

@@ -17,8 +17,9 @@ struct CountingView: View {
         VStack {
             Spacer()
             
-            Text("\(model.finishSetCount + 1) セット目")
+            Text("\(model.finishSetCount + 1) / \(model.selectedSet) Set")
                 .foregroundColor(.white)
+                .font(.headline)
                 .padding(.vertical, 10)
             
             Text("Do it!")
@@ -29,7 +30,6 @@ struct CountingView: View {
             
             Progress_CircleView(size : 200,circleColor: Color.green, maxValue: CGFloat(model.time), progress:  $model.counter)
                 .onReceive(model.timer) { (_) in
-                    print("1111")
                     model.CompleteActive()
                 }.padding(10)
                
@@ -40,7 +40,7 @@ struct CountingView: View {
                 
                 Button(action: {
                     
-                    model.stopCounter()
+                    model.stopCounter(type: .count)
                 }) {
                     Text(model.isActive ? "一時停止" : "再開")
                         .foregroundColor(.white)
@@ -52,7 +52,8 @@ struct CountingView: View {
                 }
                 
                 Button(action: {
-                    model.closeCounter()
+                    model.showCloseAert(type: .count)
+//                    model.closeCounter(type: .count)
                 }) {
                     Text("Close")
                         .foregroundColor(.white)
@@ -73,6 +74,9 @@ struct CountingView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)
         .ignoresSafeArea(.all, edges: .top)
+        .alert(isPresented: $model.showALert, content: {
+            model.closeAlert
+        })
         .onAppear {
             
             model.isActive = true
