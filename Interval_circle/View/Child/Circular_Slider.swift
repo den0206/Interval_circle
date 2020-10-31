@@ -21,7 +21,9 @@ struct Circular_Slider: View {
         
         ZStack {
             /// base Circle
-            Circle().stroke(Color.gray, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
+//            Circle().stroke(Color.gray, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
+//                .frame(width: size, height: size)
+            Circle().stroke(configureGradient(leadingColor : .gray ,trailingColor: .clear), style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
                 .frame(width: size, height: size)
             
        

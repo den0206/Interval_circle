@@ -11,6 +11,8 @@ struct IntervalView: View {
     
     @EnvironmentObject var model : IntervalModel
 
+    @AppStorage(AppStorageKey.showMovie) var showMovie = true
+
     var body: some View {
         
         VStack {
@@ -43,7 +45,7 @@ struct IntervalView: View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal,40)
-                        .background(model.isActive ? Color.blue : Color.green)
+                        .background(model.isActive ? configureGradient(trailingColor: .blue) : configureGradient(trailingColor: .green))
                         .clipShape(Capsule())
                     
                 }
@@ -55,7 +57,7 @@ struct IntervalView: View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal,40)
-                        .background(Color.yellow)
+                        .background(configureGradient(trailingColor: .yellow))
                         .clipShape(Capsule())
                     
                 }
@@ -68,11 +70,8 @@ struct IntervalView: View {
         }
         .foregroundColor(.white)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LooperBackgroundView())
+        .background(showMovie ? AnyView(LooperBackgroundView())  : AnyView(Color.black))
         .ignoresSafeArea(.all, edges: .top)
-
-//        .background(Color.black)
-//        .ignoresSafeArea(.all, edges: .top)
         .alert(isPresented: $model.showALert, content: {
             model.closeAlert
         })

@@ -11,6 +11,8 @@ struct CountingView: View {
     
     @EnvironmentObject var model : IntervalModel
     
+    @AppStorage(AppStorageKey.showMovie) var showMovie = true
+
     
     var body: some View {
         
@@ -46,7 +48,7 @@ struct CountingView: View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal,40)
-                        .background(model.isActive ? Color.blue : Color.green)
+                        .background(model.isActive ? configureGradient(trailingColor: .blue) : configureGradient(trailingColor: .green))
                         .clipShape(Capsule())
                     
                 }
@@ -58,7 +60,7 @@ struct CountingView: View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal,40)
-                        .background(Color.red)
+                        .background(configureGradient(trailingColor: .red))
                         .clipShape(Capsule())
                     
                 }
@@ -71,7 +73,7 @@ struct CountingView: View {
         }
         .foregroundColor(.white)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LooperBackgroundView())
+        .background(showMovie ? AnyView(LooperBackgroundView())  : AnyView(Color.black))
         .ignoresSafeArea(.all, edges: .top)
 
 //        .background(Color.black)

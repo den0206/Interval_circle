@@ -12,4 +12,5 @@ enum AppStorageKey {
     static let timer = "timer"
     static let interval = "interval"
     static let set = "set"
+    static let showMovie = "showMovie"
 }

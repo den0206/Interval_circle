@@ -12,52 +12,80 @@ struct PrepareView: View {
     @EnvironmentObject var model : IntervalModel
     @Environment(\.presentationMode) var presentationMode
     
+    @AppStorage(AppStorageKey.showMovie) var showMovie = true
+
     @State private var counter = 3
     
     var body: some View {
         
-        VStack {
-            
-            HStack {
-                Button(action: {
-                    model.closeCounter(type: .count)
-                }, label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                })
+        ZStack {
+            /// Z1
+            VStack(alignment: .trailing) {
+                
+                HStack() {
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Toggle("", isOn: $showMovie)
+                            .labelsHidden()
+                        Text(showMovie ? "動画無し" : "動画表示")
+                            .font(.caption2)
+                            .foregroundColor(.white)
+                    }
+                }
                 .padding()
-               
+              
                 Spacer()
             }
-            .padding()
+            .padding(.top, 13)
             
-            Spacer()
-            
-            Text("\(counter)")
-                .font(.system(size: 150, weight: .black, design: .default))
-                .offset(y: -20)
-                .onReceive(model.timer) { (_) in
-    
-                    counter -= 1
-                    
-                    if counter == 0 {
-                        model.playFinishSound()
-                        model.timer.upstream.connect().cancel()
-                        Thread.sleep(forTimeInterval: 0.5)
-                        model.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-                        model.state = .playing
-                    }
-                  
+            /// Z2
+            VStack {
+                
+                HStack {
+                    Button(action: {
+                        model.closeCounter(type: .count)
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                    })
+                    .padding()
+                   
+                    Spacer()
                 }
-            
-            Spacer()
-            
+                .padding()
+                
+                Spacer()
+                
+                Text("\(counter)")
+                    .font(.system(size: 150, weight: .black, design: .default))
+                    .offset(y: -20)
+                    .onReceive(model.timer) { (_) in
+        
+                        counter -= 1
+                        
+                        if counter == 0 {
+                            model.playFinishSound()
+                            model.timer.upstream.connect().cancel()
+                            Thread.sleep(forTimeInterval: 0.5)
+                            model.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+                            model.state = .playing
+                        }
+                      
+                    }
+                
+                Spacer()
+                
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .foregroundColor(.white)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LooperBackgroundView())
+        .background(showMovie ? AnyView(LooperBackgroundView())  : AnyView(Color.black))
         .ignoresSafeArea(.all, edges: .top)
+        
+     
 
 
     }

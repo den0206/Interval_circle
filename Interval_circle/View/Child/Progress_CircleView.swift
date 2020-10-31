@@ -18,9 +18,9 @@ struct Progress_CircleView: View {
         
         ZStack {
             /// base Circle
-            Circle().stroke(Color.gray, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
-                .frame(width: size, height: size)
-            
+//            Circle().stroke(Color.gray, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
+//                .frame(width: size, height: size)
+//            
        
             
             /// Progress CIrcle

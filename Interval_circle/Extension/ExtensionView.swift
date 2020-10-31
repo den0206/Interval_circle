@@ -16,6 +16,15 @@ extension View {
         }, text: text)
     }
 }
+
+
+
+func configureGradient(leadingColor : Color = .clear, trailingColor : Color) -> LinearGradient {
+    
+    return LinearGradient(gradient: Gradient(colors: [leadingColor, trailingColor]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/)
+}
+
+
 struct HUDView<Presenting> : View where Presenting : View {
     
     @Binding var  isShowing : Bool

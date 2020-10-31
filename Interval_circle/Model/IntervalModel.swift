@@ -88,6 +88,7 @@ class IntervalModel : ObservableObject {
             playStart2Sound()
  
         case 0 :
+
             finishSetCount += 1
             playFinishSound()
             if finishSetCount == selectedSet {
@@ -128,6 +129,8 @@ class IntervalModel : ObservableObject {
 
             counter = CGFloat(time)
             intervalTimer.upstream.connect().cancel()
+            
+            
             timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             state = .playing
         default :
