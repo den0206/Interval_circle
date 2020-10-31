@@ -37,6 +37,8 @@ class IntervalModel : ObservableObject {
     
     @Published var counter : CGFloat = 0.0
     @Published var finishSetCount = 0
+    @Published var showSetCount = true
+
     
     @Published var selectedCount : CGFloat = 0
     @Published var selectedInterval : CGFloat = 0
@@ -44,6 +46,7 @@ class IntervalModel : ObservableObject {
     
     @Published var showALert = false
     @Published var closeAlert = Alert(title: Text(""))
+    
     
     /// sounds
     var startsound1 : AVAudioPlayer?
@@ -86,28 +89,27 @@ class IntervalModel : ObservableObject {
             playStart1Sound()
             
         case 2 :
-            
             playStart2Sound()
  
         case 0 :
-
             finishSetCount += 1
+            showSetCount = false
         
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             playFinishSound()
             
             if finishSetCount == selectedSet {
-                print("Finish")
                 timer.upstream.connect().cancel()
                 finishSetCount = 0
-                state = .setting
-            } else {
                 
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.state = .setting
+                }
+                
+            } else {
                 
                 self.timer.upstream.connect().cancel()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 
-                    
                     self.state = .interval
                     self.counter = CGFloat(self.interval)
                     self.intervalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -115,6 +117,7 @@ class IntervalModel : ObservableObject {
                 }
              
             }
+            
         default :
             break
         }
@@ -132,9 +135,7 @@ class IntervalModel : ObservableObject {
         }
         
         switch counter {
-        
-        case 10 :
-            playStart3Sound()
+
         
         case 1,3:
             playStart1Sound()
@@ -144,7 +145,7 @@ class IntervalModel : ObservableObject {
  
         case 0 :
             
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            showSetCount = true
             playFinishSound()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -160,6 +161,14 @@ class IntervalModel : ObservableObject {
             break
         }
 
+    }
+    
+    func prepareAction() {
+        playFinishSound()
+        timer.upstream.connect().cancel()
+        Thread.sleep(forTimeInterval: 0.5)
+        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        state = .playing
     }
     
     
@@ -303,6 +312,8 @@ class IntervalModel : ObservableObject {
     func playFinishSound() {
         
         DispatchQueue.global().async {
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+
             self.finishsound?.play()
         }
     }

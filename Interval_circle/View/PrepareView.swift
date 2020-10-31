@@ -68,14 +68,7 @@ struct PrepareView: View {
                         counter -= 1
                         
                         if counter == 0 {
-                            
-                            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-
-                            model.playFinishSound()
-                            model.timer.upstream.connect().cancel()
-                            Thread.sleep(forTimeInterval: 0.5)
-                            model.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-                            model.state = .playing
+                            model.prepareAction()
                         }
                       
                     }

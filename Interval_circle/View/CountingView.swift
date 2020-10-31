@@ -19,11 +19,14 @@ struct CountingView: View {
         VStack {
             Spacer()
             
-            Text("\(model.finishSetCount + 1) / \(model.selectedSet) Set")
+            
+            Text(model.finishSetCount + 1 != model.selectedSet ? "\(model.finishSetCount + 1) / \(model.selectedSet) Set" : "Last Set!")
                 .foregroundColor(.white)
                 .font(.headline)
                 .padding(.vertical, 10)
+                .opacity(model.showSetCount ? 1 : 0)
             
+  
             Text("Do it!")
                 .foregroundColor(.white)
                 .font(.largeTitle)
@@ -34,6 +37,7 @@ struct CountingView: View {
                 .onReceive(model.timer) { (_) in
                     model.CompleteActive()
                 }.padding(10)
+                
                
             
             Spacer()
@@ -83,6 +87,7 @@ struct CountingView: View {
         .onAppear {
             
             model.isActive = true
+            model.showSetCount = true
             model.counter = CGFloat(model.time)
             
         }

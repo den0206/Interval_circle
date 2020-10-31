@@ -30,6 +30,7 @@ struct Progress_CircleView: View {
                 .frame(width: size, height: size)
                 .rotationEffect(.init(degrees: -90))
                 .animation(.spring())
+                .opacity(progress == 0 ? 0 : 1)
             
 
             /// cente Text
