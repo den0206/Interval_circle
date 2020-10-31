@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PrepareView: View {
 
@@ -29,7 +30,7 @@ struct PrepareView: View {
                     VStack {
                         Toggle("", isOn: $showMovie)
                             .labelsHidden()
-                        Text(showMovie ? "動画無し" : "動画表示")
+                        Text(showMovie ? "No Movie" : "動画表示")
                             .font(.caption2)
                             .foregroundColor(.white)
                     }
@@ -61,12 +62,15 @@ struct PrepareView: View {
                 
                 Text("\(counter)")
                     .font(.system(size: 150, weight: .black, design: .default))
-                    .offset(y: -20)
+                    .offset(y: -80)
                     .onReceive(model.timer) { (_) in
         
                         counter -= 1
                         
                         if counter == 0 {
+                            
+                            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+
                             model.playFinishSound()
                             model.timer.upstream.connect().cancel()
                             Thread.sleep(forTimeInterval: 0.5)
@@ -84,10 +88,6 @@ struct PrepareView: View {
         }
         .background(showMovie ? AnyView(LooperBackgroundView())  : AnyView(Color.black))
         .ignoresSafeArea(.all, edges: .top)
-        
-     
-
-
     }
 }
 

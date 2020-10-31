@@ -71,9 +71,11 @@ class IntervalModel : ObservableObject {
     //MARK: - functions
     
     func CompleteActive() {
+    
+        if counter > 0 {
+            counter -= 1
+        }
         
-        
-        counter -= 1
         
         switch counter {
         
@@ -90,17 +92,27 @@ class IntervalModel : ObservableObject {
         case 0 :
 
             finishSetCount += 1
+        
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             playFinishSound()
+            
             if finishSetCount == selectedSet {
                 print("Finish")
                 timer.upstream.connect().cancel()
                 finishSetCount = 0
                 state = .setting
             } else {
-                counter = CGFloat(interval)
-                timer.upstream.connect().cancel()
-                intervalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-                state = .interval
+                
+                
+                self.timer.upstream.connect().cancel()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                
+                    
+                    self.state = .interval
+                    self.counter = CGFloat(self.interval)
+                    self.intervalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+                }
              
             }
         default :
@@ -111,7 +123,13 @@ class IntervalModel : ObservableObject {
     
     func CompleteInterval() {
         
-        counter -= 1
+        if counter > 0 {
+            counter -= 1
+
+        } else {
+            print("Call")
+            return
+        }
         
         switch counter {
         
@@ -125,14 +143,19 @@ class IntervalModel : ObservableObject {
             playStart2Sound()
  
         case 0 :
+            
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             playFinishSound()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+               
+                self.intervalTimer.upstream.connect().cancel()
+                self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+                self.state = .playing
+                self.counter = CGFloat(self.time)
+            }
 
-            counter = CGFloat(time)
-            intervalTimer.upstream.connect().cancel()
-            
-            
-            timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-            state = .playing
+           
         default :
             break
         }
@@ -256,22 +279,32 @@ class IntervalModel : ObservableObject {
     }
     
     func playStart1Sound() {
-        startsound1?.play()
+        
+        DispatchQueue.global().async {
+            self.startsound1?.play()
+        }
+       
         
     }
     
     func playStart2Sound() {
-        startsound2?.play()
+        DispatchQueue.global().async {
+            self.startsound2?.play()
+        }
         
     }
     func playStart3Sound() {
-        startsound3?.play()
+        DispatchQueue.global().async {
+            self.startsound3?.play()
+        }
         
     }
     
     func playFinishSound() {
         
-        finishsound?.play()
+        DispatchQueue.global().async {
+            self.finishsound?.play()
+        }
     }
  
 }

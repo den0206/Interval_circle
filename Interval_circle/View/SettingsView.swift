@@ -50,7 +50,7 @@ struct SettingsView: View {
                     VStack {
                         Toggle("", isOn: $showMovie)
                             .labelsHidden()
-                        Text(showMovie ? "動画無し" : "動画表示")
+                        Text(showMovie ? "No Movie" : "動画表示")
                             .font(.caption2)
                             .foregroundColor(.white)
                     }
@@ -158,9 +158,6 @@ struct SettingsView: View {
             
             }
             .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)
-          
-    //        .background(Color.black)
-
             .sheet(item: $sheetView, content: { (item) in
                 switch item {
                 case .set :

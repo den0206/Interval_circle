@@ -12,6 +12,7 @@ struct SetListView: View {
     var action : (_ i: Int)-> Void
     
     @Environment(\.presentationMode) var presentationMode
+    @AppStorage(AppStorageKey.showMovie) var showMovie = true
 
     
     var body: some View {
@@ -42,7 +43,7 @@ struct SetListView: View {
                             VStack {
                                 
                                 HStack {
-                                    Text("\(i)")
+                                    Text("\(i) セット")
                                         .font(.headline)
                                         .foregroundColor(.white)
                                  
@@ -61,7 +62,7 @@ struct SetListView: View {
                 
             }
             .frame(width: geo.size.width, height: geo.size.height)
-            .background(Color.black)
+            .background(showMovie ? AnyView(LooperBackgroundView())  : AnyView(Color.black))
         }
         
         
