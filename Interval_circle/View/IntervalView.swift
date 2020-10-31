@@ -68,8 +68,11 @@ struct IntervalView: View {
         }
         .foregroundColor(.white)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
+        .background(LooperBackgroundView())
         .ignoresSafeArea(.all, edges: .top)
+
+//        .background(Color.black)
+//        .ignoresSafeArea(.all, edges: .top)
         .alert(isPresented: $model.showALert, content: {
             model.closeAlert
         })

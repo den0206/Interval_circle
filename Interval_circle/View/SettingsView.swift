@@ -30,6 +30,8 @@ struct SettingsView: View {
     @State private var showHUD = false
     @State private var showAlert = false
     @State private var alert = Alert(title: Text(""))
+    
+    @State private var showMovie = true
 
     
     var body: some View {
@@ -37,9 +39,23 @@ struct SettingsView: View {
           Spacer()
             
             Group {
-                Text("稼働時間")
-                    .foregroundColor(.white)
-                    .padding(.bottom, 5)
+                HStack {
+                    
+                    Spacer()
+                    Text("稼働時間")
+                        .foregroundColor(.white)
+                        .padding(.bottom, 5)
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Toggle("動画あり", isOn: $showMovie)
+                            .padding(.trailing, 5)
+                            .foregroundColor(.white)
+                    }
+                    
+                }
+               
                 
                 Circular_Slider(size: 130, circleColor: Color.green, maxValue: model.maxValue, progress: $model.selectedCount, angle: $timerAngle)
                
@@ -124,8 +140,10 @@ struct SettingsView: View {
         
         }
         .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)
-        .background(Color.black)
+        .background(LooperBackgroundView())
         .ignoresSafeArea(.all, edges: .top)
+//        .background(Color.black)
+
         .sheet(item: $sheetView, content: { (item) in
             switch item {
             case .set :

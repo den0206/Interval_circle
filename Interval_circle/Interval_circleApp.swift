@@ -14,6 +14,7 @@ struct Interval_circleApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
             RootView()
                 .environmentObject(model)
         }
