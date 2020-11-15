@@ -13,19 +13,22 @@ struct RootView: View {
     
     var body: some View {
         
-        switch model.state {
-        
-        case .setting :
-            SettingsView()
-        case .prepare:
-            PrepareView()
-        case .playing :
-            CountingView()
-        case .interval :
-            IntervalView()
-     
+        if model.showBoarding {
+            OnBoardingView()
+        } else {
+            switch model.state {
+            
+            case .setting :
+                SettingsView()
+            case .prepare:
+                PrepareView()
+            case .playing :
+                CountingView()
+            case .interval :
+                IntervalView()
+                
+            }
         }
-        
     }
 }
 

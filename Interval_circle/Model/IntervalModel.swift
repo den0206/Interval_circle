@@ -27,7 +27,7 @@ enum TimerType {
 class IntervalModel : ObservableObject {
     
     
-    
+    @Published var showBoarding = true
     @Published var state : ViewState = .setting
     
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
