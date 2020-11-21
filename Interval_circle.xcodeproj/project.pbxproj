@@ -11,7 +11,6 @@
 		3A175855254C6644009E58BD /* boxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A175854254C6644009E58BD /* boxing.mp3 */; };
 		3A2C8E5B254CF67400C9A16B /* LoopMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */; };
 		3A2C8E7C254CFB5500C9A16B /* LooperBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C8E7B254CFB5500C9A16B /* LooperBackgroundView.swift */; };
-		3A3385EA2568A4DC00FCE363 /* secKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3385E92568A4DC00FCE363 /* secKey.swift */; };
 		3A36E0E6254D00550004C460 /* training-1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E6B254CFA7A00C9A16B /* training-1.mp4 */; };
 		3A36E0E7254D00550004C460 /* training-2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E69254CFA7A00C9A16B /* training-2.mp4 */; };
 		3A36E0E8254D00550004C460 /* training-3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E71254CFA7C00C9A16B /* training-3.mp4 */; };
@@ -34,6 +33,7 @@
 		3A6577AB254AEE89002915A9 /* IntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6577AA254AEE89002915A9 /* IntervalView.swift */; };
 		3A6EB04A254C3193004026C6 /* start-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A6EB049254C3193004026C6 /* start-sound.mp3 */; };
 		3A6EB04D254C319A004026C6 /* finish-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A6EB04C254C319A004026C6 /* finish-sound.mp3 */; };
+		3A7471BB2568B92D00DDA57D /* secKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7471BA2568B92D00DDA57D /* secKey.swift */; };
 		3A80D6812549AC1E00BA4349 /* SetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80D6802549AC1E00BA4349 /* SetListView.swift */; };
 		3A8CAC55254C68FD0016CEB9 /* boxing2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CAC54254C68FD0016CEB9 /* boxing2.mp3 */; };
 		3A9D65B42568AB1500D197BA /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D65B32568AB1500D197BA /* AdMob.swift */; };
@@ -77,10 +77,10 @@
 		3A2C8E70254CFA7C00C9A16B /* training-15.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "training-15.mp4"; sourceTree = "<group>"; };
 		3A2C8E71254CFA7C00C9A16B /* training-3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "training-3.mp4"; sourceTree = "<group>"; };
 		3A2C8E7B254CFB5500C9A16B /* LooperBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooperBackgroundView.swift; sourceTree = "<group>"; };
-		3A3385E92568A4DC00FCE363 /* secKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secKey.swift; sourceTree = "<group>"; };
 		3A6577AA254AEE89002915A9 /* IntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalView.swift; sourceTree = "<group>"; };
 		3A6EB049254C3193004026C6 /* start-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "start-sound.mp3"; sourceTree = "<group>"; };
 		3A6EB04C254C319A004026C6 /* finish-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "finish-sound.mp3"; sourceTree = "<group>"; };
+		3A7471BA2568B92D00DDA57D /* secKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secKey.swift; sourceTree = "<group>"; };
 		3A80D6802549AC1E00BA4349 /* SetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetListView.swift; sourceTree = "<group>"; };
 		3A8CAC54254C68FD0016CEB9 /* boxing2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boxing2.mp3; sourceTree = "<group>"; };
 		3A9D65B32568AB1500D197BA /* AdMob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9D91BB25499C7C0002FDB7 /* Keys.swift */,
-				3A3385E92568A4DC00FCE363 /* secKey.swift */,
+				3A7471BA2568B92D00DDA57D /* secKey.swift */,
 				3A9D65B32568AB1500D197BA /* AdMob.swift */,
 				3ADABC4C254C24A800ACEF06 /* ExtensionView.swift */,
 				3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */,
@@ -269,7 +269,7 @@
 				3AAAC78E25499051007D26DD /* Sources */,
 				3AAAC78F25499051007D26DD /* Frameworks */,
 				3AAAC79025499051007D26DD /* Resources */,
-				D70919F9D5B6DFF0E09745DF /* [CP] Embed Pods Frameworks */,
+				C88953E8328B77DD2E58DCDA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,7 +370,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D70919F9D5B6DFF0E09745DF /* [CP] Embed Pods Frameworks */ = {
+		C88953E8328B77DD2E58DCDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,6 +399,7 @@
 				3A6577AB254AEE89002915A9 /* IntervalView.swift in Sources */,
 				3A2C8E7C254CFB5500C9A16B /* LooperBackgroundView.swift in Sources */,
 				3A2C8E5B254CF67400C9A16B /* LoopMovieView.swift in Sources */,
+				3A7471BB2568B92D00DDA57D /* secKey.swift in Sources */,
 				3A80D6812549AC1E00BA4349 /* SetListView.swift in Sources */,
 				3ABD59B72549B40100FBD4A7 /* PrepareView.swift in Sources */,
 				3A9D91B725499B1E0002FDB7 /* SettingsView.swift in Sources */,
@@ -408,7 +409,6 @@
 				3AAAC7AF254990D2007D26DD /* Circular_Slider.swift in Sources */,
 				3AAAC7B2254990D4007D26DD /* RootView.swift in Sources */,
 				3A9D65B42568AB1500D197BA /* AdMob.swift in Sources */,
-				3A3385EA2568A4DC00FCE363 /* secKey.swift in Sources */,
 				3AC6FC0A2560DE8100790486 /* OnBoardingView.swift in Sources */,
 				3AE0107C254ADC9A00D1452B /* CountingView.swift in Sources */,
 				3A9D91BC25499C7C0002FDB7 /* Keys.swift in Sources */,
