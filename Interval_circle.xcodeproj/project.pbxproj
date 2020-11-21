@@ -36,6 +36,7 @@
 		3A6EB04D254C319A004026C6 /* finish-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A6EB04C254C319A004026C6 /* finish-sound.mp3 */; };
 		3A80D6812549AC1E00BA4349 /* SetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A80D6802549AC1E00BA4349 /* SetListView.swift */; };
 		3A8CAC55254C68FD0016CEB9 /* boxing2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CAC54254C68FD0016CEB9 /* boxing2.mp3 */; };
+		3A9D65B42568AB1500D197BA /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D65B32568AB1500D197BA /* AdMob.swift */; };
 		3A9D91B725499B1E0002FDB7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D91B625499B1E0002FDB7 /* SettingsView.swift */; };
 		3A9D91BC25499C7C0002FDB7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D91BB25499C7C0002FDB7 /* Keys.swift */; };
 		3AAAC79625499051007D26DD /* Interval_circleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAC79525499051007D26DD /* Interval_circleApp.swift */; };
@@ -82,6 +83,7 @@
 		3A6EB04C254C319A004026C6 /* finish-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "finish-sound.mp3"; sourceTree = "<group>"; };
 		3A80D6802549AC1E00BA4349 /* SetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetListView.swift; sourceTree = "<group>"; };
 		3A8CAC54254C68FD0016CEB9 /* boxing2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boxing2.mp3; sourceTree = "<group>"; };
+		3A9D65B32568AB1500D197BA /* AdMob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
 		3A9D91B625499B1E0002FDB7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3A9D91BB25499C7C0002FDB7 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3AAAC79225499051007D26DD /* Interval_circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Interval_circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 			children = (
 				3A9D91BB25499C7C0002FDB7 /* Keys.swift */,
 				3A3385E92568A4DC00FCE363 /* secKey.swift */,
+				3A9D65B32568AB1500D197BA /* AdMob.swift */,
 				3ADABC4C254C24A800ACEF06 /* ExtensionView.swift */,
 				3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */,
 			);
@@ -404,6 +407,7 @@
 				3AE01081254ADDB400D1452B /* Progress_CircleView.swift in Sources */,
 				3AAAC7AF254990D2007D26DD /* Circular_Slider.swift in Sources */,
 				3AAAC7B2254990D4007D26DD /* RootView.swift in Sources */,
+				3A9D65B42568AB1500D197BA /* AdMob.swift in Sources */,
 				3A3385EA2568A4DC00FCE363 /* secKey.swift in Sources */,
 				3AC6FC0A2560DE8100790486 /* OnBoardingView.swift in Sources */,
 				3AE0107C254ADC9A00D1452B /* CountingView.swift in Sources */,

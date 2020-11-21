@@ -77,7 +77,7 @@ struct SettingsView: View {
                     Circular_Slider(size: 130, circleColor: Color.green, maxValue: model.maxValue, progress: $model.selectedCount, angle: $timerAngle)
                    
                 }
-                .padding(10)
+                .padding(5)
                
                 Group {
                     Text("休憩時間")
@@ -86,8 +86,7 @@ struct SettingsView: View {
                     
                     Circular_Slider(size: 130, circleColor: Color.red, maxValue: model.maxValue, progress: $model.selectedInterval, angle: $intervalAngle)
                 }
-                
-                .padding(10)
+                .padding(.bottom ,5)
                 
                 Spacer()
                 
@@ -102,7 +101,7 @@ struct SettingsView: View {
                         .background(configureGradient(trailingColor: .purple))
                         .clipShape(Capsule())
                     
-                }.padding(.top,10)
+                }.padding(.top,5)
                 
                 Spacer()
                 
@@ -150,11 +149,14 @@ struct SettingsView: View {
                             .clipShape(Capsule())
                         
                     }
-                    
-                    
-                    
+             
                 }
                 .padding(.bottom, 20)
+                
+                AdBannerView()
+                    .frame(width: 320, height: 50)
+                    .padding(.bottom , 5)
+                
             
             }
             .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)

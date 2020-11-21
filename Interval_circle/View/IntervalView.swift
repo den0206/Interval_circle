@@ -16,6 +16,11 @@ struct IntervalView: View {
     var body: some View {
         
         VStack {
+            
+            Spacer()
+            AdBannerView()
+                .frame(width: 320, height: 50)
+            
             Spacer()
             
             Text("\(model.finishSetCount) / \(model.selectedSet) Set")

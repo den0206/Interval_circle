@@ -24,10 +24,14 @@ struct OnBoardingView: View {
                 .ignoresSafeArea(.all, edges: .all)
             
             VStack {
+                Spacer().frame(height: 30)
+                
+                AdBannerView()
+                    .frame(width: 320, height: 50)
                 
                 Spacer()
-                /// Slidser
                 
+                /// Slidser
                 ZStack {
                     
                   

@@ -17,6 +17,12 @@ struct CountingView: View {
     var body: some View {
         
         VStack {
+            
+            Spacer()
+            
+            AdBannerView()
+                .frame(width: 320, height: 50)
+            
             Spacer()
             
             

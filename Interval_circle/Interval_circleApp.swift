@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct Interval_circleApp: App {
-    
+
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
+
     @StateObject var model = IntervalModel()
     
     var body: some Scene {
