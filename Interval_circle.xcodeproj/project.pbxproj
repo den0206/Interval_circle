@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F10374E592A4F81821A935B /* Pods_Interval_circle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6DB6FFA376B6DEA47A3E83 /* Pods_Interval_circle.framework */; };
 		3A175855254C6644009E58BD /* boxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A175854254C6644009E58BD /* boxing.mp3 */; };
 		3A2C8E5B254CF67400C9A16B /* LoopMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */; };
 		3A2C8E7C254CFB5500C9A16B /* LooperBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C8E7B254CFB5500C9A16B /* LooperBackgroundView.swift */; };
+		3A3385EA2568A4DC00FCE363 /* secKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3385E92568A4DC00FCE363 /* secKey.swift */; };
 		3A36E0E6254D00550004C460 /* training-1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E6B254CFA7A00C9A16B /* training-1.mp4 */; };
 		3A36E0E7254D00550004C460 /* training-2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E69254CFA7A00C9A16B /* training-2.mp4 */; };
 		3A36E0E8254D00550004C460 /* training-3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C8E71254CFA7C00C9A16B /* training-3.mp4 */; };
@@ -51,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D6DB6FFA376B6DEA47A3E83 /* Pods_Interval_circle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interval_circle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A175854254C6644009E58BD /* boxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boxing.mp3; sourceTree = "<group>"; };
 		3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopMovieView.swift; sourceTree = "<group>"; };
 		3A2C8E5F254CFA7800C9A16B /* training-12.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "training-12.mp4"; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		3A2C8E70254CFA7C00C9A16B /* training-15.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "training-15.mp4"; sourceTree = "<group>"; };
 		3A2C8E71254CFA7C00C9A16B /* training-3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "training-3.mp4"; sourceTree = "<group>"; };
 		3A2C8E7B254CFB5500C9A16B /* LooperBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooperBackgroundView.swift; sourceTree = "<group>"; };
+		3A3385E92568A4DC00FCE363 /* secKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secKey.swift; sourceTree = "<group>"; };
 		3A6577AA254AEE89002915A9 /* IntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalView.swift; sourceTree = "<group>"; };
 		3A6EB049254C3193004026C6 /* start-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "start-sound.mp3"; sourceTree = "<group>"; };
 		3A6EB04C254C319A004026C6 /* finish-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "finish-sound.mp3"; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		3ADABC4C254C24A800ACEF06 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
 		3AE0107B254ADC9A00D1452B /* CountingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingView.swift; sourceTree = "<group>"; };
 		3AE01080254ADDB400D1452B /* Progress_CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress_CircleView.swift; sourceTree = "<group>"; };
+		955D2B01A7710853223C625D /* Pods-Interval_circle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interval_circle.debug.xcconfig"; path = "Target Support Files/Pods-Interval_circle/Pods-Interval_circle.debug.xcconfig"; sourceTree = "<group>"; };
+		CF3EBB990A682D723C3BF23E /* Pods-Interval_circle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interval_circle.release.xcconfig"; path = "Target Support Files/Pods-Interval_circle/Pods-Interval_circle.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F10374E592A4F81821A935B /* Pods_Interval_circle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9D91BB25499C7C0002FDB7 /* Keys.swift */,
+				3A3385E92568A4DC00FCE363 /* secKey.swift */,
 				3ADABC4C254C24A800ACEF06 /* ExtensionView.swift */,
 				3A2C8E5A254CF67400C9A16B /* LoopMovieView.swift */,
 			);
@@ -159,6 +167,8 @@
 			children = (
 				3AAAC79425499051007D26DD /* Interval_circle */,
 				3AAAC79325499051007D26DD /* Products */,
+				964218E7307111CAA9604393 /* Pods */,
+				8DF799776044D534BCD92431 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +238,23 @@
 			path = Child;
 			sourceTree = "<group>";
 		};
+		8DF799776044D534BCD92431 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D6DB6FFA376B6DEA47A3E83 /* Pods_Interval_circle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		964218E7307111CAA9604393 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				955D2B01A7710853223C625D /* Pods-Interval_circle.debug.xcconfig */,
+				CF3EBB990A682D723C3BF23E /* Pods-Interval_circle.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAAC7A125499052007D26DD /* Build configuration list for PBXNativeTarget "Interval_circle" */;
 			buildPhases = (
+				149B147285F0C15503E6AA7D /* [CP] Check Pods Manifest.lock */,
 				3AAAC78E25499051007D26DD /* Sources */,
 				3AAAC78F25499051007D26DD /* Frameworks */,
 				3AAAC79025499051007D26DD /* Resources */,
+				D70919F9D5B6DFF0E09745DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -315,6 +344,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		149B147285F0C15503E6AA7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interval_circle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D70919F9D5B6DFF0E09745DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interval_circle/Pods-Interval_circle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interval_circle/Pods-Interval_circle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Interval_circle/Pods-Interval_circle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3AAAC78E25499051007D26DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -333,6 +404,7 @@
 				3AE01081254ADDB400D1452B /* Progress_CircleView.swift in Sources */,
 				3AAAC7AF254990D2007D26DD /* Circular_Slider.swift in Sources */,
 				3AAAC7B2254990D4007D26DD /* RootView.swift in Sources */,
+				3A3385EA2568A4DC00FCE363 /* secKey.swift in Sources */,
 				3AC6FC0A2560DE8100790486 /* OnBoardingView.swift in Sources */,
 				3AE0107C254ADC9A00D1452B /* CountingView.swift in Sources */,
 				3A9D91BC25499C7C0002FDB7 /* Keys.swift in Sources */,
@@ -393,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -448,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -460,6 +532,7 @@
 		};
 		3AAAC7A225499052007D26DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 955D2B01A7710853223C625D /* Pods-Interval_circle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -482,6 +555,7 @@
 		};
 		3AAAC7A325499052007D26DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF3EBB990A682D723C3BF23E /* Pods-Interval_circle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
